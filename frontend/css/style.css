@@ -1,0 +1,585 @@
+:root {
+    --veis-base:#F5F5F5;
+    --light-gray:#e0dddd;
+    --bright-blue:#2F89FC;
+    --marine-blue:#30E3CA;
+    --base-gray:#40514E;
+
+    --button-base:#146C94;
+    --button-text:#F6F1F1;
+    --button-css:#1D4ED8;
+}
+
+
+
+body{
+    overflow-x: hidden;
+}
+
+.starting{
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+}
+
+.ocultAnimation{
+    animation: ocultAnimation 3s ease-in-out;
+    -webkit-animation: ocultAnimation 3s ease-in-out;
+}
+
+.box{
+    width: 900px;
+    height: 600px;
+    background-color: var(--veis-base);
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+
+    -webkit-box-shadow: 10px 10px 31px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 31px -8px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 31px -8px rgba(0,0,0,0.75);
+}
+
+.text-font{
+    font-family: 'Pacifico', cursive;
+}
+
+.box-text{
+    display: flex;
+    font-family: 'Pacifico', cursive;
+    font-size: 46px;
+
+    color: var(--bright-blue);
+}
+
+#progress-bar{
+    background-color: var(--bright-blue);
+}
+
+@keyframes ocultAnimation {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.box-down{
+   width: 300px;
+}
+
+.text-base{
+    color: var(--bright-blue) important;
+}
+
+.small-text{
+    font-size: 30px;
+}
+
+.navbar{
+    margin: 15px;
+    display: flex;
+}
+
+.mainPage{
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 200px;
+    margin-left: 40px;
+    margin-top: 150px;
+
+}
+
+.svg{
+    width: 35px;
+    color: var(--veis-base);
+}
+
+.settings{
+    display: flex;
+    font-family: 'Varela Round', sans-serif;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+    font-size: 20px;
+    width: 200px;
+    margin: 10px;
+    height: 45.5px;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
+}
+
+.svg-button{
+    display: flex;
+    align-items: center;
+    width: 200px;
+    gap: 30px;
+    height: 45.5px;
+}
+
+.sidebar-text{
+    margin-bottom:10px ;
+    font-size: 17px;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.innerContent{
+    display: flex;
+    gap: 100px;
+}
+
+.panel{
+    width: 1400px;
+    height: 650px;
+    border-radius: 20px;
+    background-color: var(--light-gray);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.default-panel{
+    width: 1200px;
+    height: 550px;
+    border-radius: 20px;
+    background-color: var(--veis-base);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.progress-bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.big-panel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.panel-text{
+    font-size: 30px;
+    color: var(--base-gray);
+}
+
+.grid-data-panel{
+    width: 1300px;
+    height: 550px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px; 
+}
+
+.first-col{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.jsonForm{
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+}
+
+.sumbit-boton{
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.paneLConfirmPop{
+    position: absolute;
+    left: 43%;
+    top: 35%;
+    width: 500px;
+}
+
+
+.panelDelete{
+    position: absolute;
+    left: 43%;
+    top: 35%;
+}
+
+.panelButton{
+    color: black;
+}
+
+.ModPack-order{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+
+    gap: 15px;
+
+    width: 400px;
+    height: 70px;
+    background-color: var(--button-base);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+
+    -webkit-box-shadow: 10px 7px 20px -7px rgba(0,0,0,0.8);
+    -moz-box-shadow: 10px 7px 20px -7px rgba(0,0,0,0.8);
+    box-shadow: 10px 7px 20px -7px rgba(0,0,0,0.8);
+}
+
+.ModPack-text{
+    font-family: 'Varela Round', sans-serif;
+    font-size: 19px;
+    color: var(--veis-base);
+}
+
+
+.EnableButton{
+    width: 70px;
+    height: 35px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+
+    color: var(--veis-base);
+}
+
+.ModPack-Info{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.ModPack-text-version{
+    font-family: 'Varela Round', sans-serif;
+    font-size: 14px;
+    color: var(--veis-base);
+
+}
+
+
+.ModPack-Description{
+    display: flex;
+    width: 370px;
+    background-color: var(--base-gray);
+    padding: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+
+    color: #e0dddd;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.grid-data-panel > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.DownButton{
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.filterPanel{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: end;
+    height: 65px;
+    gap: 40px;
+    margin-bottom:10px ;
+
+    display: none;
+}
+
+.hotBar{
+    background-color: var(--light-gray);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    gap: 15px;
+
+    width: 1200px;
+    height: 60px;
+    margin-left: 100px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.downPage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.AssistancePanel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.modsSlide{
+    max-height: 540px;
+    width: 1300px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Reducido el espacio entre elementos */
+    border-radius: 10px;
+    margin-top: 10px;
+    overflow-y: auto; /* Usar solo overflow-y en este caso */
+
+    scrollbar-color: var(--bright-blue) var(--light-gray);
+    scrollbar-width: thin;
+}
+
+.modsSlider::-webkit-scrollbar  {
+    display:none;
+}
+
+.DivMod{
+    background-color: var(--button-base);
+    width: 400px;
+    height: 60px;
+    border: none;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.DivMod  > img {
+    width: 40px;
+    color: white;
+}
+
+/* Todo: Agrega puntos suspensivos segun el tamaño del texto */
+
+.DivMod > p {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 19px;
+    width: 270px;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    color: var(--veis-base);
+}
+
+.MyModsPanel{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    font-family: 'Varela Round', sans-serif;
+    font-size: 19px;
+    color: var(--base-gray);
+
+}
+
+
+.allInfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.betaCorner{
+  position: relative;
+  top: 0;
+  right: 0;
+  width: 50px; 
+  height: 25px; 
+  margin-left: 10px;
+  background-color: #ff0000; 
+}
+
+.betaCorner2{
+    position: relative;
+    top: 10px;
+    left: 190px;
+    width: 50px; 
+    height: 25px; 
+    margin-left: 10px;
+    background-color: #ff0000; 
+  }
+
+.betaAlert{
+    position: absolute;
+    left: 43%;
+    top: 35%;
+}
+
+
+.ScreenShotsPanel{
+    width: 1300px;
+    height: 550px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px; 
+}
+.ScreenShotsPanel>img{
+    max-width: 200px;
+}
+
+
+.searchInput{
+
+    position:relative;
+    top: 10px;
+
+    max-width: 500px;
+    margin-bottom: 10px;
+}
+
+.DIRButton{
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profileDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    gap: 15px;
+
+    width: 400px;
+    height: 150px;
+    background-color: var(--button-base);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+
+}
+
+.LauncherProfilePanel > div{
+    max-height: 540px;
+    width: 1300px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Reducido el espacio entre elementos */
+    border-radius: 10px;
+    margin-top: 10px;
+    overflow-y: auto; /* Usar solo overflow-y en este caso */
+    margin-left: 85px;
+
+    scrollbar-color: var(--bright-blue) var(--light-gray);
+    scrollbar-width: thin;
+}
+
+.profileDiv > p{
+    font-family: 'Varela Round', sans-serif;
+    font-size: 21px;
+    margin-top: 5px;
+    color: var(--veis-base);
+}
+
+.inputButton{
+    max-width: 65px;
+    max-height: 30px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.inputDIV{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.profileDataDiv > p{
+    font-family: 'Varela Round', sans-serif;
+    color: var(--veis-base);
+}
+.profileDataDiv{
+    margin-bottom: 10px;
+}
+
+input[type="number"] {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  input[type="number"]:focus {
+    border-color: #3498db;
+  }
