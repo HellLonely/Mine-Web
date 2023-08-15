@@ -33,8 +33,10 @@ function obtainModPacks() {
 obtainModPacks()
 
 
+
 ShareActionButton.addEventListener("click", () => {
     let SharePatherJson = shareSelect.value
+
 
     fetch("/lista-archivos")
     .then((response) => response.json())
@@ -74,6 +76,7 @@ ShareActionButton.addEventListener("click", () => {
 
 
             }
+            
             
           })
           

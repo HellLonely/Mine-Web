@@ -584,12 +584,19 @@ input[type="number"] {
     border-color: #3498db;
   }
 
-.ZipCompresor{
+.ZipCompresor-Content{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     gap: 300px;
+}
+
+.ZipCompresor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .Share{
@@ -598,4 +605,10 @@ input[type="number"] {
     justify-content: center;
     flex-direction: column;
     gap: 25px;
+}
+
+.info-mess{
+    position: relative;
+    bottom: -200px;
+    max-width: 500px;
 }
