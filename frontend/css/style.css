@@ -583,3 +583,19 @@ input[type="number"] {
   input[type="number"]:focus {
     border-color: #3498db;
   }
+
+.ZipCompresor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 300px;
+}
+
+.Share{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 25px;
+}

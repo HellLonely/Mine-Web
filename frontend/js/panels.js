@@ -25,6 +25,10 @@ const LauncherProfilePanel = document.getElementById('LauncherProfilePanel');
 const LauncherProfileButton = document.getElementById('LauncherProfileButton');
 
 
+const ZipCompresorPanel = document.getElementById('ZipCompresor');
+const ZipCompresorButton = document.getElementById('ZipCompresorButton');
+
+
 jsonModPack_DeleteDiv.style.display = 'none';
 
 MyModsPanel.style.display = 'none';
@@ -38,6 +42,8 @@ createpackpanel.style.display = 'none';
 ScreenShotsPanel.style.display = 'none';
 
 LauncherProfilePanel.style.display = 'none';
+
+ZipCompresorPanel.style.display = 'none';
 
 
 defaultPanel = `
@@ -71,6 +77,7 @@ ButtonModPack.addEventListener('click',() => {
     MyModsPanel.style.display = 'none';
     LauncherProfilePanel.style.display = 'none';
     ScreenShotsPanel.style.display = 'none';
+    ZipCompresorPanel.style.display = 'none';
     dataPanel.style.display = 'grid';
     paneltext.textContent = 'ModPacks'
     document.getElementById('filterPanel').style.display = 'flex';
@@ -83,6 +90,7 @@ ButtonCreateModPack.addEventListener('click',() => {
     createpackpanel.style.display = 'block';
     AssistancePanel.style.display = 'none';
     LauncherProfilePanel.style.display = 'none';
+    ZipCompresorPanel.style.display = 'none';
     ScreenShotsPanel.style.display = 'none';
     MyModsPanel.style.display = 'none';
     dataPanel.style.display = 'none';
@@ -93,6 +101,7 @@ ButtonCreateModPack.addEventListener('click',() => {
 ButtonAssistance.addEventListener('click',() => {
   AssistancePanel.style.display = 'flex';
   createpackpanel.style.display = 'none';
+  ZipCompresorPanel.style.display = 'none';
   LauncherProfilePanel.style.display = 'none';
   ScreenShotsPanel.style.display = 'none';
   MyModsPanel.style.display = 'none';
@@ -105,6 +114,7 @@ ButtonMyMods.addEventListener('click', () => {
   AssistancePanel.style.display = 'none';
   createpackpanel.style.display = 'none';
   LauncherProfilePanel.style.display = 'none';
+  ZipCompresorPanel.style.display = 'none';
   MyModsPanel.style.display = 'flex';
   ScreenShotsPanel.style.display = 'none';
   dataPanel.style.display = 'none';
@@ -118,6 +128,7 @@ ScreenShotsButton.addEventListener('click', () => {
   createpackpanel.style.display = 'none';
   LauncherProfilePanel.style.display = 'none';
   MyModsPanel.style.display = 'none';
+  ZipCompresorPanel.style.display = 'none';
   ScreenShotsPanel.style.display = 'grid';
   dataPanel.style.display = 'none';
   paneltext.textContent = 'Screen Shots';
@@ -129,10 +140,24 @@ LauncherProfileButton.addEventListener('click', () => {
   AssistancePanel.style.display = 'none';
   createpackpanel.style.display = 'none';
   LauncherProfilePanel.style.display = 'flex';
+  ZipCompresorPanel.style.display = 'none';
   MyModsPanel.style.display = 'none';
   ScreenShotsPanel.style.display = 'none';
   dataPanel.style.display = 'none';
   paneltext.textContent = 'Profiles';
+  mostrarMods();
+  document.getElementById('filterPanel').style.display = 'none';
+})
+
+ZipCompresorButton.addEventListener('click', () => {
+  AssistancePanel.style.display = 'none';
+  createpackpanel.style.display = 'none';
+  LauncherProfilePanel.style.display = 'none';
+  MyModsPanel.style.display = 'none';
+  ZipCompresorPanel.style.display = 'flex';
+  ScreenShotsPanel.style.display = 'none';
+  dataPanel.style.display = 'none';
+  paneltext.textContent = 'Share & Recive';
   mostrarMods();
   document.getElementById('filterPanel').style.display = 'none';
 })

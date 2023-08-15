@@ -11,3 +11,6 @@ It is installed in a simple way, here you can look for all the versions of the p
 ### Assistance ℹ️
 
 If you don't know how to use the program there is a section called Assistance, where you can consult how to create mod packages.
+
+
+![image](img/image1.png)

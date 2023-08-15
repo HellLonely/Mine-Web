@@ -8,7 +8,7 @@ const opn = require('opn');
 const { exec } = require('child_process');
 const minecraftDir = path.join(process.env.APPDATA, '.minecraft');
 const axios = require('axios');
-
+const AdmZip = require('adm-zip');
 
 opn('http://localhost:3000');
 
@@ -418,3 +418,60 @@ app.post('/updateProfileXmxValue', (req, res) => {
   });
 });
 
+
+
+function compressFolder(folderPath, outputFilePath) {
+  const zip = new AdmZip();
+
+  const files = fs.readdirSync(folderPath);
+
+  files.forEach(file => {
+    const filePath = path.join(folderPath, file);
+    zip.addLocalFile(filePath);
+  });
+
+  zip.writeZip(outputFilePath);
+
+  console.log(`Carpeta comprimida en: ${outputFilePath}`);
+}
+
+const outputZipPath = minecraftScreenshotsPath+'\\data.zip';
+
+//compressFolder(folderToCompress, outputZipPath);
+
+function extractZip(zipFilePath, outputFolder) {
+  const zip = new AdmZip(zipFilePath);
+
+  // Extrae los archivos en la carpeta de destino
+  zip.extractAllTo(outputFolder, true);
+
+  console.log(`Archivo ZIP descomprimido en: ${outputFolder}`);
+}
+
+const zipFileToExtract = 'D:\\Programas\\Minecraft\\GestorMods\\Zombies\\archivo.zip';
+const outputFolder = 'E:\\Packs';
+
+//extractZip(zipFileToExtract, outputFolder);
+
+app.post('/compressFolder', (req, res) => {
+  const folderToCompress = req.body.folderToCompress;
+
+  const zipFileName = 'archivo_comprimido.zip'; // Nombre del archivo ZIP
+
+  
+
+  compressFolder(folderToCompress, outputZipPath);
+
+  res.setHeader('Content-Disposition', `attachment; filename=${zipFileName}`);
+  res.sendFile(outputZipPath);
+
+  setTimeout(() => {
+    fs.unlink(outputZipPath, (err) => {
+      if (err) {
+        console.error('Error al eliminar el archivo:', err);
+        return;
+      }
+      console.log('Archivo eliminado con éxito después de 10 segundos.');
+    });
+  }, 10000); // 10000 milisegundos = 10 segundos
+})

@@ -107,6 +107,19 @@
                     </div>
                 </div>
 
+                <div>
+                    <button id="ZipCompresorButton" data-tooltip-target="tooltip-default_13" type="button" class="sidebar-text text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 svg-button">
+                        <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5.953 7.467 6.094-2.612m.096 8.114L5.857 9.676m.305-1.192a2.581 2.581 0 1 1-5.162 0 2.581 2.581 0 0 1 5.162 0ZM17 3.84a2.581 2.581 0 1 1-5.162 0 2.581 2.581 0 0 1 5.162 0Zm0 10.322a2.581 2.581 0 1 1-5.162 0 2.581 2.581 0 0 1 5.162 0Z"/>
+                          </svg>
+                        Share Packs
+                    </button>
+                    <div id="tooltip-default_13" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                        Here you can share your Mod Packs and upload the packages that have been shared with you.
+                        <div class="tooltip-arrow" data-popper-arrow></div>
+                    </div>
+                </div>
+
                 <div style="display: none;">
                     <button id="ScreenShotsButton" data-tooltip-target="tooltip-default_11" type="button" class="sidebar-text text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 svg-button">
                         <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
@@ -345,8 +358,28 @@
 
                     <!-- +++++++++++++++++ -->
 
-                    <div id="LauncherProfilePanel" class="LauncherProfilePanel">
-                        
+                    <div id="LauncherProfilePanel" class="LauncherProfilePanel"></div>
+
+                    <!-- +++++++++++++++++ -->
+
+                    <div id="ZipCompresor" class="ZipCompresor">
+                        <div class="Share">
+                            <div class="Select-ModPack">
+                                <div class="Select-ModPack">
+
+                                    <label for="share-pack" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select a package to share.</label>
+                                    <select id="share-pack" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                        <option selected>No selected ..</option>
+                                    </select>
+    
+                                </div>
+                            </div>
+
+                            <button id="ShareActionButton" type="button" class=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Share</button>
+                        </div>
+                        <div class="Recive">
+                            
+                        </div>
                     </div>
 
 
@@ -465,4 +498,5 @@
 <script src="js/hotbar.js"></script>
 <script src="js/mods.js"></script>
 <script src="js/profiles.js"></script>
+<script src="js/zip.js"></script>
 </html>
