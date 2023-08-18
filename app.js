@@ -454,11 +454,16 @@ const outputFolder = 'E:\\Packs';
 //extractZip(zipFileToExtract, outputFolder);
 
 app.post('/compressFolder', (req, res) => {
-  const folderToCompress = req.body.folderToCompress;
+  let folderToCompress = req.body.folderToCompress;
 
   const zipFileName = 'archivo_comprimido.zip'; // Nombre del archivo ZIP
 
-  
+  if (folderToCompress === 'mods'){
+    folderToCompress = path.join(process.env.APPDATA, '.minecraft','mods');
+    console.log('1 '+folderToCompress);
+  }
+
+  console.log('2 '+folderToCompress);
 
   compressFolder(folderToCompress, outputZipPath);
 

@@ -612,3 +612,8 @@ input[type="number"] {
     bottom: -200px;
     max-width: 500px;
 }
+
+.ShareActionButton{
+    display: flex;
+    gap: 10px;
+}
