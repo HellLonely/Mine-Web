@@ -437,33 +437,25 @@ function compressFolder(folderPath, outputFilePath) {
 
 const outputZipPath = minecraftScreenshotsPath+'\\data.zip';
 
-//compressFolder(folderToCompress, outputZipPath);
-
 function extractZip(zipFilePath, outputFolder) {
   const zip = new AdmZip(zipFilePath);
 
-  // Extrae los archivos en la carpeta de destino
   zip.extractAllTo(outputFolder, true);
 
   console.log(`Archivo ZIP descomprimido en: ${outputFolder}`);
 }
 
-const zipFileToExtract = 'D:\\Programas\\Minecraft\\GestorMods\\Zombies\\archivo.zip';
-const outputFolder = 'E:\\Packs';
 
 //extractZip(zipFileToExtract, outputFolder);
 
 app.post('/compressFolder', (req, res) => {
   let folderToCompress = req.body.folderToCompress;
 
-  const zipFileName = 'archivo_comprimido.zip'; // Nombre del archivo ZIP
-
+  const zipFileName = 'archivo_comprimido.zip'; 
+  
   if (folderToCompress === 'mods'){
     folderToCompress = path.join(process.env.APPDATA, '.minecraft','mods');
-    console.log('1 '+folderToCompress);
   }
-
-  console.log('2 '+folderToCompress);
 
   compressFolder(folderToCompress, outputZipPath);
 
@@ -476,7 +468,7 @@ app.post('/compressFolder', (req, res) => {
         console.error('Error al eliminar el archivo:', err);
         return;
       }
-      console.log('Archivo eliminado con éxito después de 10 segundos.');
+      console.log('Archivo eliminado con éxito.');
     });
-  }, 10000); // 10000 milisegundos = 10 segundos
+  }, 10000);
 })
