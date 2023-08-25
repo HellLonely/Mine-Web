@@ -90,11 +90,7 @@ function mostrarMods(){
               })
 
             })
-
           }
-
-          
-          
         });
         const modsSlideCount = document.getElementById("modsSlideCount");
         modsSlideCount.textContent = 'Amount of Mods: '+data.length
@@ -102,8 +98,6 @@ function mostrarMods(){
       .catch((error) => {
         console.error("Error al obtener los nombres de los archivos:", error);
       });
-
-      
 }
 
 mostrarMods()

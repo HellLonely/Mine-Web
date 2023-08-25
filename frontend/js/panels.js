@@ -316,9 +316,6 @@ function showJson(jsonData,jsonName) {
   const jsonModPack_DIRButton = document.createElement("button");
   const jsonModPack_DeleteButton = document.createElement("button");
 
-
- 
-
   jsonModPack_DIRButton.innerHTML = `
                 <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                 <path d="M4.09 7.586A1 1 0 0 1 5 7h13V6a2 2 0 0 0-2-2h-4.557L9.043.8a2.009 2.009 0 0 0-1.6-.8H2a2 2 0 0 0-2 2v14c.001.154.02.308.058.457L4.09 7.586Z"/>
@@ -511,9 +508,7 @@ function showJson(jsonData,jsonName) {
   jsonModPack_DownButton.addEventListener("mouseout", () => {
     jsonModPack_InfoDescription.style.display = "none";
   });
-
   
-
 }
 
 mostrarArchivos();

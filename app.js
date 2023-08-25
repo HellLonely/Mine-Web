@@ -15,6 +15,7 @@ opn('http://localhost:3000');
 /**
  *  Enable static assets to enable css and javascript 
 */
+
 const minecraftScreenshotsPath = path.join(process.env.APPDATA, '.minecraft','screenshots');
 app.use(express.static('/screenshots'));
 
@@ -299,7 +300,7 @@ app.get("/get-files", (req, res) => {
 
 /**
  * TODO: API Minecraft Verions
- */
+*/
 
 app.post('/get-versions', async (req, res) => {
   try {
