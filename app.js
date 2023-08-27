@@ -76,8 +76,8 @@ const currentDate = new Date();
 rpcClient.on('ready', () => {
   console.log('Connected to Discord RPC');
   rpcClient.setActivity({
-    details: 'Viendo un video',
-    state: 'En YouTube',
+    details: 'Close Web Mine',
+    state: 'Goodbye...',
     startTimestamp: currentDate,
     largeImageKey: 'icon',
     instance: false,
