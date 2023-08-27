@@ -67,7 +67,7 @@ document.getElementById('filterPanel').style.display = 'flex';
 
 //paneltext.textContent = ''
 
-
+updateStateOnServer('Escogiendo su ModPack');
 
 
 
@@ -80,6 +80,7 @@ ButtonModPack.addEventListener('click',() => {
     ZipCompresorPanel.style.display = 'none';
     dataPanel.style.display = 'grid';
     paneltext.textContent = 'ModPacks'
+    updateStateOnServer('Escogiendo su ModPack');
     document.getElementById('filterPanel').style.display = 'flex';
 });
 
@@ -95,6 +96,7 @@ ButtonCreateModPack.addEventListener('click',() => {
     MyModsPanel.style.display = 'none';
     dataPanel.style.display = 'none';
     paneltext.textContent = 'Create ModPacks'
+    updateStateOnServer('Creando el mejor ModPack');
     document.getElementById('filterPanel').style.display = 'none';
 });
 
@@ -107,6 +109,7 @@ ButtonAssistance.addEventListener('click',() => {
   MyModsPanel.style.display = 'none';
   dataPanel.style.display = 'none';
   paneltext.textContent = 'Assistance'
+  updateStateOnServer('Buscando ayuda...');
   document.getElementById('filterPanel').style.display = 'none';
 });
 
@@ -119,6 +122,7 @@ ButtonMyMods.addEventListener('click', () => {
   ScreenShotsPanel.style.display = 'none';
   dataPanel.style.display = 'none';
   paneltext.textContent = 'My Mods';
+  updateStateOnServer('Revisando los Mods');
   mostrarMods();
   document.getElementById('filterPanel').style.display = 'none';
 })
@@ -132,6 +136,7 @@ ScreenShotsButton.addEventListener('click', () => {
   ScreenShotsPanel.style.display = 'grid';
   dataPanel.style.display = 'none';
   paneltext.textContent = 'Screen Shots';
+  
   mostrarMods();
   document.getElementById('filterPanel').style.display = 'none';
 })
@@ -145,6 +150,7 @@ LauncherProfileButton.addEventListener('click', () => {
   ScreenShotsPanel.style.display = 'none';
   dataPanel.style.display = 'none';
   paneltext.textContent = 'Profiles';
+  updateStateOnServer('Viendo su perfil');
   mostrarMods();
   document.getElementById('filterPanel').style.display = 'none';
 })
@@ -158,6 +164,7 @@ ZipCompresorButton.addEventListener('click', () => {
   ScreenShotsPanel.style.display = 'none';
   dataPanel.style.display = 'none';
   paneltext.textContent = 'Share & Recive';
+  updateStateOnServer('Compartiendo un ModPack');
   mostrarMods();
   document.getElementById('filterPanel').style.display = 'none';
 })
@@ -180,6 +187,27 @@ panelButton.addEventListener('click',() => {
     mostrarArchivos();
     console.log('panelConfirm clicked');
 })
+
+
+
+function updateStateOnServer(state) {
+  fetch('/update-state', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ state: state })
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log(data.message);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+}
+
+
 
 const paneLConfirmPop2 = document.getElementById('paneLConfirmPop2');
 paneLConfirmPop2.style.display = 'none';

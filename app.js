@@ -9,6 +9,8 @@ const { exec } = require('child_process');
 const minecraftDir = path.join(process.env.APPDATA, '.minecraft');
 const axios = require('axios');
 const AdmZip = require('adm-zip');
+const rpc = require('discord-rpc');
+
 
 opn('http://localhost:3000');
 
@@ -59,6 +61,35 @@ fs.readdir(minecraftDir, (error, archivos) => {
     //console.log(archivos);
   }
 });
+
+
+//
+
+/**
+ * Discord Connection
+*/
+
+const clientId = '1145369925599371396'; // Reemplaza con el ID de tu aplicación Discord
+const rpcClient = new rpc.Client({ transport: 'ipc' });
+const currentDate = new Date();
+
+rpcClient.on('ready', () => {
+  console.log('Connected to Discord RPC');
+  rpcClient.setActivity({
+    details: 'Viendo un video',
+    state: 'En YouTube',
+    startTimestamp: currentDate,
+    largeImageKey: 'icon',
+    instance: false,
+  });
+});
+
+rpcClient.login({ clientId }).catch(console.error);
+
+
+
+
+
 
 const rutaMinecraft = path.join(process.env.APPDATA, '.minecraft');
 
@@ -278,6 +309,30 @@ app.post('/minecraft-foldermodpackdata', (req, res) => {
 /**
  * ? End the HotBar section
 */
+
+
+/**
+ * ? Discord section
+*/
+
+function updatePresence(state) {
+  rpcClient.setActivity({
+    details: state,
+    state: '⛏ Minecraft is Amazing',
+    startTimestamp: currentDate,
+    largeImageKey: 'icon',
+    instance: false,
+  });
+}
+
+app.post('/update-state', (req, res) => {
+  const receivedState = req.body.state;
+  updatePresence(receivedState) 
+});
+
+
+
+
 
 app.post('/out-log', (req, res) => {
   console.log('Exiting...');
