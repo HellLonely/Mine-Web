@@ -69,18 +69,17 @@ fs.readdir(minecraftDir, (error, archivos) => {
  * Discord Connection
 */
 
-const clientId = '1145369925599371396'; // Reemplaza con el ID de tu aplicación Discord
+const clientId = '1145369925599371396'; 
 const rpcClient = new rpc.Client({ transport: 'ipc' });
 const currentDate = new Date();
 
 rpcClient.on('ready', () => {
-  console.log('Connected to Discord RPC');
   rpcClient.setActivity({
     details: 'Close Web Mine',
     state: 'Goodbye...',
     startTimestamp: currentDate,
     largeImageKey: 'icon',
-    instance: false,
+    instance: false
   });
 });
 
@@ -321,11 +320,12 @@ function updatePresence(state) {
     state: '⛏ Minecraft is Amazing',
     startTimestamp: currentDate,
     largeImageKey: 'icon',
-    instance: false,
+    largeImageText: '⛏ Minecraft is Amazing',
+    instance: false
   });
 }
 
-app.post('/update-state', (req, res) => {
+app.post('/update-state', (req) => {
   const receivedState = req.body.state;
   updatePresence(receivedState) 
 });
