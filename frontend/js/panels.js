@@ -80,7 +80,7 @@ ButtonModPack.addEventListener('click',() => {
     ZipCompresorPanel.style.display = 'none';
     dataPanel.style.display = 'grid';
     paneltext.textContent = 'ModPacks'
-    updateStateOnServer('Escogiendo su ModPack');
+    updateStateOnServer('Escogiendo ModPack');
     document.getElementById('filterPanel').style.display = 'flex';
 });
 
@@ -191,6 +191,11 @@ panelButton.addEventListener('click',() => {
 
 
 function updateStateOnServer(state) {
+
+  if (window.innerWidth <= 768 ){
+    state = 'Using a mobile phone 📱'
+  }
+
   fetch('/update-state', {
     method: 'POST',
     headers: {
@@ -200,6 +205,8 @@ function updateStateOnServer(state) {
   })
   .then(response => response.json())
   .then(data => {
+
+
     console.log(data.message);
   })
   .catch(error => {
