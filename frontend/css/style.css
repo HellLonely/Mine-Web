@@ -617,3 +617,9 @@ input[type="number"] {
     display: flex;
     gap: 10px;
 }
+
+.backButton{
+    position: fixed;
+    bottom: 40px;
+    right: 60px;
+}

@@ -31,6 +31,14 @@
 </head>
 
 <body>
+
+    <button type="button" id="backButton" class="backButton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        <svg class="w-7 h-7 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
+          </svg>
+        <span class="sr-only">Icon description</span>
+    </button>
+
     <section class="bg-white dark:bg-gray-900">
         <div class="py-8 px-4 hidden mx-auto max-w-screen-md text-center lg:py-16 lg:px-12">
             <svg class="mx-auto mb-4 w-10 h-10 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -300,6 +308,12 @@
                     });
             });
         }
+
+
+        const backButton = document.getElementById('backButton')
+        backButton.addEventListener('click',() => {
+            history.back();
+        })
     </script>
 </body>
 
