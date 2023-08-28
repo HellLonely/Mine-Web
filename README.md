@@ -12,5 +12,8 @@ It is installed in a simple way, here you can look for all the versions of the p
 
 If you don't know how to use the program there is a section called Assistance, where you can consult how to create mod packages.
 
+### Discord Presence 
 
-![image](img/image1.png)
+Now all your discord friends will be able to pour utilixar Mine Web, thanks to the new implementation of Discord Rich Presence.
+
+![Discord Rich Presence](img/image2.png)
