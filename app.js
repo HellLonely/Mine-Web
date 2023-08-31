@@ -109,7 +109,7 @@ if(!fs.existsSync(rutaWebmineChatJSON)){
 
   const jsonData = {
     messages: [
-      { date: '2023-08-25', chatMessage: 'LOL,this chat is so cool 🤩' },
+      { date: 'Mine Web', chatMessage: 'LOL,this chat is so cool 🤩' },
     ]
   };
   const jsonString = JSON.stringify(jsonData, null, 2);
@@ -191,8 +191,7 @@ app.get('/archivo-json/:nombreArchivo', (req, res) => {
 
   fs.readFile(rutaArchivo, 'utf8', (err, data) => {
     if (err) {
-      console.error('Error al leer el archivo JSON:', err);
-      res.status(500).json({ error: 'Error al leer el archivo JSON' });
+
     } else {
       const jsonData = JSON.parse(data);
       const response = {
@@ -540,6 +539,7 @@ app.post('/compressFolder', (req, res) => {
 })
 
 
+
 app.post('/api/messages', (req, res) => {
   fs.readFile(rutaWebmineChatJSON, 'utf8', (err, data) => {
     if (err) {
@@ -553,33 +553,7 @@ app.post('/api/messages', (req, res) => {
   });
 });
 
-app.post('/api/SendMessage2s', (req, res) => {
-  const { chatMessage } = req.body;
-  if (!chatMessage) {
-    res.status(400).json({ error: 'El mensaje es requerido.' });
-    return;
-  }
 
-  fs.readFile(rutaWebmineChatJSON, 'utf8', (err, data) => {
-    if (err) {
-      console.error('Error al leer el archivo:', err);
-      res.status(500).json({ error: 'Error al leer los mensajes' });
-      return;
-    }
-
-    const jsonData = JSON.parse(data);
-    jsonData.messages.push({ date: new Date().toISOString(), chatMessage });
-
-    fs.writeFile(rutaWebmineChatJSON, JSON.stringify(jsonData, null, 2), 'utf8', (writeErr) => {
-      if (writeErr) {
-        console.error('Error al escribir en el archivo:', writeErr);
-        res.status(500).json({ error: 'Error al escribir los mensajes' });
-      } else {
-        res.json({ message: 'Mensaje agregado exitosamente.' });
-      }
-    });
-  });
-});
 
 app.post('/sendMessage', (req, res) => {
   const { chatMessage } = req.body;
@@ -596,8 +570,16 @@ app.post('/sendMessage', (req, res) => {
       return;
     }
 
+    const fechaActual = new Date();
+
+    const dia = fechaActual.getDate();
+    const mes = fechaActual.getMonth() + 1;
+    const anio = fechaActual.getFullYear();
+
+    const fechaFormateada = `${anio}-${mes}-${dia}`;
+
     const jsonData = JSON.parse(data);
-    jsonData.messages.push({ date: new Date().toISOString(), chatMessage });
+    jsonData.messages.push({ date: fechaFormateada, chatMessage });
 
     fs.writeFile(rutaWebmineChatJSON, JSON.stringify(jsonData, null, 2), 'utf8', (writeErr) => {
       if (writeErr) {
@@ -609,3 +591,4 @@ app.post('/sendMessage', (req, res) => {
     });
   });
 });
+
