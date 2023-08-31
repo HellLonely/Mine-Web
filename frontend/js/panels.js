@@ -182,6 +182,7 @@ const ButtonNotes = document.getElementById('ButtonNotes');
 
 ButtonNotes.addEventListener('click', () => {
   window.location.href = 'web/notes.html';
+  updateStateOnServer('Añadiendo notas.');
 });
 
 panelButton.addEventListener('click',() => {
