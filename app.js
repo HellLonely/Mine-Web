@@ -10,6 +10,7 @@ const minecraftDir = path.join(process.env.APPDATA, '.minecraft');
 const axios = require('axios');
 const AdmZip = require('adm-zip');
 const rpc = require('discord-rpc');
+const cors = require('cors');
 
 
 opn('http://localhost:3000');
@@ -38,8 +39,8 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
 });
 
-app.use(express.json());
 
+app.use(express.json());
 
 app.listen(port, () => {
   console.log(`                                 
@@ -62,7 +63,7 @@ fs.readdir(minecraftDir, (error, archivos) => {
   }
 });
 
-
+app.use(cors());
 //
 
 /**
@@ -92,18 +93,28 @@ rpcClient.login({ clientId }).catch(console.error);
 
 const rutaMinecraft = path.join(process.env.APPDATA, '.minecraft');
 
-// Ruta de la carpeta webmine-data dentro de .minecraft
 const rutaWebmineData = path.join(rutaMinecraft, 'webmine-data');
+const rutaWebmineChat = path.join(rutaMinecraft, 'webmine-data', 'chat');
+const rutaWebmineChatJSON = path.join(rutaMinecraft, 'webmine-data', 'chat',`userChat.json`);
 
-// Comprobar si la carpeta webmine-data existe
+
 if (!fs.existsSync(rutaWebmineData)) {
-  // Si no existe, crear la carpeta
   fs.mkdirSync(rutaWebmineData);
-  console.log('Carpeta webmine-data creada.');
-} else {
-  console.log('La carpeta webmine-data ya existe.');
+}
+if(!fs.existsSync(rutaWebmineChat)){
+  fs.mkdirSync(rutaWebmineChat);
 }
 
+if(!fs.existsSync(rutaWebmineChatJSON)){
+
+  const jsonData = {
+    messages: [
+      { date: '2023-08-25', chatMessage: 'LOL,this chat is so cool 🤩' },
+    ]
+  };
+  const jsonString = JSON.stringify(jsonData, null, 2);
+  fs.writeFile(rutaWebmineChatJSON, jsonString, 'utf8', (err) => {});
+}
 
 
 
@@ -126,7 +137,6 @@ app.post('/crear-json', (req, res) => {
 
   if (!fs.existsSync(rutaWebmineData)) {
     fs.mkdirSync(rutaWebmineData);
-    console.log('Carpeta webmine-data creada.');
   }
 
   const rutaArchivoJSON = path.join(rutaWebmineData, `${cadenaAleatoria}.json`);
@@ -528,3 +538,74 @@ app.post('/compressFolder', (req, res) => {
     });
   }, 10000);
 })
+
+
+app.post('/api/messages', (req, res) => {
+  fs.readFile(rutaWebmineChatJSON, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error al leer el archivo:', err);
+      res.status(500).json({ error: 'Error al leer los mensajes' });
+      return;
+    }
+
+    const jsonData = JSON.parse(data);
+    res.json(jsonData.messages);
+  });
+});
+
+app.post('/api/SendMessage2s', (req, res) => {
+  const { chatMessage } = req.body;
+  if (!chatMessage) {
+    res.status(400).json({ error: 'El mensaje es requerido.' });
+    return;
+  }
+
+  fs.readFile(rutaWebmineChatJSON, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error al leer el archivo:', err);
+      res.status(500).json({ error: 'Error al leer los mensajes' });
+      return;
+    }
+
+    const jsonData = JSON.parse(data);
+    jsonData.messages.push({ date: new Date().toISOString(), chatMessage });
+
+    fs.writeFile(rutaWebmineChatJSON, JSON.stringify(jsonData, null, 2), 'utf8', (writeErr) => {
+      if (writeErr) {
+        console.error('Error al escribir en el archivo:', writeErr);
+        res.status(500).json({ error: 'Error al escribir los mensajes' });
+      } else {
+        res.json({ message: 'Mensaje agregado exitosamente.' });
+      }
+    });
+  });
+});
+
+app.post('/sendMessage', (req, res) => {
+  const { chatMessage } = req.body;
+
+  if (!chatMessage) {
+    res.status(400).json({ error: 'El mensaje es requerido.' });
+    return;
+  }
+
+  fs.readFile(rutaWebmineChatJSON, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error al leer el archivo:', err);
+      res.status(500).json({ error: 'Error al leer los mensajes' });
+      return;
+    }
+
+    const jsonData = JSON.parse(data);
+    jsonData.messages.push({ date: new Date().toISOString(), chatMessage });
+
+    fs.writeFile(rutaWebmineChatJSON, JSON.stringify(jsonData, null, 2), 'utf8', (writeErr) => {
+      if (writeErr) {
+        console.error('Error al escribir en el archivo:', writeErr);
+        res.status(500).json({ error: 'Error al escribir los mensajes' });
+      } else {
+        res.json({ message: 'Mensaje agregado exitosamente.' });
+      }
+    });
+  });
+});

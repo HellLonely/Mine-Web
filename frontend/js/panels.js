@@ -178,6 +178,11 @@ ButtonSumbit.addEventListener('click',() => {
 
 const panelConfirm = document.getElementById('panelConfirm');
 const panelButton = document.getElementById('panelButton');
+const ButtonNotes = document.getElementById('ButtonNotes');
+
+ButtonNotes.addEventListener('click', () => {
+  window.location.href = 'web/notes.html';
+});
 
 panelButton.addEventListener('click',() => {
     paneLConfirmPop.style.display = 'none';
